@@ -3,6 +3,7 @@
 #include<ui_admin.h>
 #include <QMainWindow>
 #include "admin.h"
+#include "teacher.h"
 #include <QStackedWidget>
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -32,5 +33,6 @@ private:
     Ui::MainWindow *ui;
     QStackedWidget *stackedWidget;
     Admin *adminUI;
+    Teacher *teacherUI;
 };
 #endif // MAINWINDOW_H

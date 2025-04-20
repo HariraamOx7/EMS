@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "admin.h"
 #include <QMessageBox>
+#include "teacher.h"
 #include "ui_mainwindow.h"
 #include<QWidget>
 #include <ui_admin.h>
@@ -10,9 +11,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    adminUI = new Admin(this);  // Create adminUI instance
+    setWindowTitle("EMS");
+    adminUI = new Admin(this);
     ui->stackedWidget->addWidget(adminUI);
     ui->stackedWidget->setCurrentWidget(ui->main);
+    Admin *adminWindow = new Admin();
+    teacherUI = new Teacher(adminWindow,this);
+    ui->stackedWidget->addWidget(teacherUI);
+    ui->stackedWidget->setCurrentWidget(ui->main);
+
 
 }
 
@@ -26,7 +33,6 @@ void MainWindow::on_admin_btn_clicked()
 {
     selectedRole = "Admin";
     ui->stackedWidget->setCurrentWidget(ui->login);
-
 }
 
 
@@ -58,10 +64,22 @@ void MainWindow::on_login_btn_clicked()
         if (success) {
             qDebug() << "Admin login successful. Switching to admin dashboard.";
             ui->stackedWidget->setCurrentWidget(adminUI);
-            adminUI->show();// Resize the Admin widget to ensure it's large enough to be seen
+            adminUI->show();
 
         }
     }
+    else if (selectedRole == "Teacher") {
+         success = teacherUI->authenticate(username, password);
+        if (success) {
+             // open TeacherUI window
+            qDebug() << "Teacher login successful. Switching to teacher dashboard.";
+             ui->stackedWidget->setCurrentWidget(teacherUI);
+             teacherUI->show();
+
+        }
+    }
+
+
 
     if (!success) {
         QMessageBox::warning(this, "Login Failed", "Invalid credentials!");

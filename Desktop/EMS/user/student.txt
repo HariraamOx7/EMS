@@ -1,6 +1,3 @@
-102,HARI,hari
-102,Hari,hari
-103,hari,hari@2007
-102,hari,hari
-108,aravind,aravind@2006
-105,hari,password
+101,Hariraam,Hariraam@2007
+102,Aravind,Aravind@2006
+102,Hari,Hari

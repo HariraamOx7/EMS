@@ -221,3 +221,128 @@ void Admin::on_teacherbackbtn_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+
+void Admin::on_deletestdbtn_clicked()
+{
+    int row = ui->studentdetailstable->currentRow();
+    if (row < 0) {
+        QMessageBox::warning(this, "No Selection", "Please select a student to delete.");
+        return;
+    }
+
+    // Get student ID (assuming it’s in column 0)
+    QString id = ui->studentdetailstable->item(row, 0)->text();
+
+    // Remove from table
+    ui->studentdetailstable->removeRow(row);
+
+    // Remove from file
+    deleteStudentFromFile(id);
+
+}
+void Admin::deleteStudentFromFile(QString &id){
+    QString originalFilePath = "C:/Users/HARIRAAM/Desktop/EMS/user/student.txt";
+    QString tempFilePath = "C:/Users/HARIRAAM/Desktop/EMS/user/temp.txt";
+
+    QFile inputFile(originalFilePath);
+    QFile tempFile(tempFilePath);
+
+    if (!inputFile.open(QIODevice::ReadOnly | QIODevice::Text) ||
+        !tempFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "File Error", "Could not open file for deletion.");
+        return;
+    }
+
+    QTextStream in(&inputFile);
+    QTextStream out(&tempFile);
+
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        if (!line.startsWith(id + ",")) {
+            out << line << "\n";
+        }
+    }
+
+    inputFile.close();
+    tempFile.close();
+
+    // Delete original file first
+    if (!QFile::remove(originalFilePath)) {
+        QMessageBox::critical(this, "Error", "Failed to delete original student file.");
+        return;
+    }
+
+    // Rename temp to original
+    if (!QFile::rename(tempFilePath, originalFilePath)) {
+        QMessageBox::critical(this, "Error", "Failed to rename temp file to student.txt.");
+        return;
+    }
+}
+
+
+
+
+void Admin::on_teacherdeletebtn_clicked()
+{
+    int row = ui->teacherdetailstable->currentRow();
+    if (row < 0) {
+        QMessageBox::warning(this, "No Selection", "Please select a teacher to delete.");
+        return;
+    }
+
+    // Get student ID (assuming it’s in column 0)
+    QString id = ui->teacherdetailstable->item(row, 0)->text();
+
+    // Remove from table
+    ui->teacherdetailstable->removeRow(row);
+
+    // Remove from file
+    deleteTeacherFromFile(id);
+}
+
+void Admin::deleteTeacherFromFile(QString &id){
+    QString originalFilePath = "C:/Users/HARIRAAM/Desktop/EMS/user/teacher.txt";
+    QString tempFilePath = "C:/Users/HARIRAAM/Desktop/EMS/user/temp.txt";
+
+    QFile inputFile(originalFilePath);
+    QFile tempFile(tempFilePath);
+
+    if (!inputFile.open(QIODevice::ReadOnly | QIODevice::Text) ||
+        !tempFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "File Error", "Could not open file for deletion.");
+        return;
+    }
+
+    QTextStream in(&inputFile);
+    QTextStream out(&tempFile);
+
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        if (!line.startsWith(id + ",")) {
+            out << line << "\n";
+        }
+    }
+
+    inputFile.close();
+    tempFile.close();
+
+    // Delete original file first
+    if (!QFile::remove(originalFilePath)) {
+        QMessageBox::critical(this, "Error", "Failed to delete original teacher file.");
+        return;
+    }
+
+    // Rename temp to original
+    if (!QFile::rename(tempFilePath, originalFilePath)) {
+        QMessageBox::critical(this, "Error", "Failed to rename temp file to teacher txt.");
+        return;
+    }
+}
+QWidget* Admin::getManageStudentPage() {
+    return ui->manage_student; // assuming it's named that in admin.ui
+}
+
+QStackedWidget* Admin::getStack() {
+    return ui->stackedWidget; // the main stacked widget
+}
+

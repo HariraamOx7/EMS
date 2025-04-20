@@ -16,6 +16,7 @@ qt_add_executable(EMS
     student.h student.cpp student.ui
     teacher.h teacher.cpp teacher.ui
     user.h user.cpp user.ui
+
 )
 
 target_link_libraries(EMS

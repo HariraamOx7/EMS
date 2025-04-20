@@ -2,6 +2,7 @@
 #define ADMIN_H
 
 #include <QWidget>
+#include <qstackedwidget.h>
 #include "User.h"
 namespace Ui {
 class Admin;
@@ -15,6 +16,8 @@ public:
     explicit Admin(QWidget *parent = nullptr); // Constructor with parent argument
     ~Admin();
     bool authenticate(const QString& username, const QString& password) ;
+    QWidget* getManageStudentPage();   // to return the widget
+    QStackedWidget* getStack();
 
 
 
@@ -38,6 +41,12 @@ private slots:
     void on_studentbackbtn_clicked();
 
     void on_teacherbackbtn_clicked();
+
+    void on_deletestdbtn_clicked();
+    void deleteStudentFromFile(QString &id);
+
+    void deleteTeacherFromFile(QString &id);
+    void on_teacherdeletebtn_clicked();
 
 private:
     Ui::Admin *ui;
