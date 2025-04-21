@@ -85,6 +85,10 @@ void Teacher::on_createexam_2_clicked()
     } else if (type.trimmed().toLower() == "subjective") {
         ui->teacherWidget->setCurrentWidget(ui->setquestionforsubjective);
     }
+    ui->examid->clear();
+    ui->examname->clear();
+    ui->examtype->clear();
+
 }
 
 

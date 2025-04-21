@@ -6,3 +6,8 @@
 103|maths|Subjective|90
 104|maths|Objective |90
 108|maths|Subjective|1
+104|ECA|Objective |3
+104|maths|Objective |0
+104|maths|Objective |10
+105|maths|Subjective|10
+102|maths|Objective |2

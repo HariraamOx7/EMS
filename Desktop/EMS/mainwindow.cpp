@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "admin.h"
 #include <QMessageBox>
+#include "student.h"
 #include "teacher.h"
 #include "ui_mainwindow.h"
 #include<QWidget>
@@ -18,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
     Admin *adminWindow = new Admin();
     teacherUI = new Teacher(adminWindow,this);
     ui->stackedWidget->addWidget(teacherUI);
+    ui->stackedWidget->setCurrentWidget(ui->main);
+    studentUI = new Student(adminWindow,this);
+    ui->stackedWidget->addWidget(studentUI);
     ui->stackedWidget->setCurrentWidget(ui->main);
 
 
@@ -77,7 +81,17 @@ void MainWindow::on_login_btn_clicked()
              teacherUI->show();
 
         }
+    }    else if (selectedRole == "Student") {
+        success = studentUI->authenticate(username, password);
+        if (success) {
+            // open TeacherUI window
+            qDebug() << "Student login successful. Switching to student dashboard.";
+            ui->stackedWidget->setCurrentWidget(studentUI);
+            studentUI->show();
+
+        }
     }
+
 
 
 

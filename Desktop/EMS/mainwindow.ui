@@ -29,6 +29,11 @@
       <height>16777215</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="currentIndex">
      <number>1</number>
     </property>
@@ -196,9 +201,9 @@
       <property name="geometry">
        <rect>
         <x>785</x>
-        <y>230</y>
+        <y>224</y>
         <width>170</width>
-        <height>40</height>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -217,24 +222,27 @@
       <property name="geometry">
        <rect>
         <x>785</x>
-        <y>343</y>
+        <y>337</y>
         <width>170</width>
-        <height>40</height>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
       <property name="inputMethodHints">
-       <set>Qt::InputMethodHint::ImhNone</set>
+       <set>Qt::InputMethodHint::ImhHiddenText|Qt::InputMethodHint::ImhNoAutoUppercase|Qt::InputMethodHint::ImhNoPredictiveText|Qt::InputMethodHint::ImhSensitiveData</set>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::EchoMode::Password</enum>
       </property>
       <property name="readOnly">
        <bool>false</bool>

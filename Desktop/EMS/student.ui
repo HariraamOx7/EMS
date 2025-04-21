@@ -6,13 +6,176 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>909</width>
-    <height>598</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QStackedWidget" name="studentstackedwidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1080</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="studentdashboard">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>100</y>
+       <width>471</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>30</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Student Dashboard</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewresult">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>510</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>19</pointsize>
+       <fontweight>Light</fontweight>
+      </font>
+     </property>
+     <property name="text">
+      <string>View Result</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewexambtn">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>360</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <fontweight>Light</fontweight>
+      </font>
+     </property>
+     <property name="text">
+      <string>View Exam </string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="viewexam">
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>60</y>
+       <width>261</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>30</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>View Exam</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="examdetails">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>250</y>
+       <width>761</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>Exam ID</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Exam Name</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Exam Type</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Duration</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Status</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Action</string>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </column>
+    </widget>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>

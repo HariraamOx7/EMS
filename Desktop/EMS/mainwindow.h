@@ -3,6 +3,7 @@
 #include<ui_admin.h>
 #include <QMainWindow>
 #include "admin.h"
+#include "student.h"
 #include "teacher.h"
 #include <QStackedWidget>
 QT_BEGIN_NAMESPACE
@@ -34,5 +35,6 @@ private:
     QStackedWidget *stackedWidget;
     Admin *adminUI;
     Teacher *teacherUI;
+    Student *studentUI;
 };
 #endif // MAINWINDOW_H

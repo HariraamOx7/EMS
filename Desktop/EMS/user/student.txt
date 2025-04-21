@@ -1,3 +1,2 @@
 101,Hariraam,Hariraam@2007
-102,Aravind,Aravind@2006
-102,Hari,Hari
+102,hari,hari
