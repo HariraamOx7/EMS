@@ -1,13 +1,2 @@
-102|Maths|Objective |90
-102|math|Objective |90
-102|math|Objective |90
-102|h|Objective |0
-102|maths|Objective |20
-103|maths|Subjective|90
-104|maths|Objective |90
-108|maths|Subjective|1
-104|ECA|Objective |3
-104|maths|Objective |0
-104|maths|Objective |10
-105|maths|Subjective|10
-102|maths|Objective |2
+105|maths|Objective |10
+105|maths|Objective |10

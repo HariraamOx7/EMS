@@ -82,9 +82,8 @@ void MainWindow::on_login_btn_clicked()
 
         }
     }    else if (selectedRole == "Student") {
-        success = studentUI->authenticate(username, password);
+         success = studentUI->authenticate(username, password);
         if (success) {
-            // open TeacherUI window
             qDebug() << "Student login successful. Switching to student dashboard.";
             ui->stackedWidget->setCurrentWidget(studentUI);
             studentUI->show();

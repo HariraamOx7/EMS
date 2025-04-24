@@ -20,6 +20,10 @@ public:
     void setCurrentStudentId(const QString &id); // To set the ID after login
     QString getCurrentStudentId();
     bool authenticate(const QString& username, const QString& password) override;
+    void loadexamquestionforo();
+    void loadexamquestionfors();
+    QString examid;
+    QString examtype;
 
 
 private slots:
