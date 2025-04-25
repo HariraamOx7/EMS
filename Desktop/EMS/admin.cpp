@@ -230,7 +230,6 @@ void Admin::on_deletestdbtn_clicked()
         return;
     }
 
-    // Get student ID (assuming it’s in column 0)
     QString id = ui->studentdetailstable->item(row, 0)->text();
 
     // Remove from table
@@ -290,7 +289,7 @@ void Admin::on_teacherdeletebtn_clicked()
         return;
     }
 
-    // Get student ID (assuming it’s in column 0)
+    // Get student ID
     QString id = ui->teacherdetailstable->item(row, 0)->text();
 
     // Remove from table
@@ -339,7 +338,7 @@ void Admin::deleteTeacherFromFile(QString &id){
     }
 }
 QWidget* Admin::getManageStudentPage() {
-    return ui->manage_student; // assuming it's named that in admin.ui
+    return ui->manage_student;
 }
 
 QStackedWidget* Admin::getStack() {

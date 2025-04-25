@@ -1,2 +1,4 @@
 105|maths|Objective |10
 105|maths|Objective |10
+104|Maths|Objective |10
+104|MATHS|Objective |10

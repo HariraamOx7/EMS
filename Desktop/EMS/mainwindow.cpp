@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("EMS");
+
     adminUI = new Admin(this);
     ui->stackedWidget->addWidget(adminUI);
     ui->stackedWidget->setCurrentWidget(ui->main);
@@ -75,7 +76,7 @@ void MainWindow::on_login_btn_clicked()
     else if (selectedRole == "Teacher") {
          success = teacherUI->authenticate(username, password);
         if (success) {
-             // open TeacherUI window
+
             qDebug() << "Teacher login successful. Switching to teacher dashboard.";
              ui->stackedWidget->setCurrentWidget(teacherUI);
              teacherUI->show();

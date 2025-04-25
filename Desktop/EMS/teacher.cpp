@@ -100,14 +100,14 @@ void Teacher::on_addquestionbtnforo_clicked()
     QString opt2 = ui->option2->text().trimmed();
     QString opt3 = ui->option3->text().trimmed();
     QString opt4 = ui->option4->text().trimmed();
-   QString selectedOption = ui->correctanswerbtn->currentText().trimmed();  // Assuming it's a QSpinBox
+   QString selectedOption = ui->correctanswerbtn->currentText().trimmed();
 
     if (question.isEmpty() || opt1.isEmpty() || opt2.isEmpty() || opt3.isEmpty() || opt4.isEmpty()) {
         QMessageBox::warning(this, "Incomplete", "Please fill all fields.");
         return;
     }
 
-    QString filename = "C:/Users/HARIRAAM/Desktop/EMS/exam/" + examid + ".txt";  // Make sure currentExamID is set when exam is created
+    QString filename = "C:/Users/HARIRAAM/Desktop/EMS/exam/" + examid + ".txt";
 
     QFile file(filename);
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
