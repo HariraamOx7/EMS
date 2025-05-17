@@ -88,19 +88,6 @@ private:
     string password;
     
 protected:
-    bool checkCredentials(const string& file, const string& id, const string& password) {
-        ifstream fin(file);
-        if (!fin.is_open()) return false;
-        
-        string line;
-        while (getline(fin, line)) {
-            vector<string> fields = splitLine(line);
-            if (fields.size() >= 3 && fields[0] == id && fields[2] == encryptPassword(password)) {
-                return true;
-            }
-        }
-        return false;
-    }
     
     bool addUser(const string& file, const string& id, const string& username, const string& password) {
         if (isIdExists(file, id)) {
@@ -175,8 +162,8 @@ protected:
             return;
         }
 
-        remove(file.c_str());
-        rename("temp.txt", file.c_str());
+        remove(file);
+        rename("temp.txt", file);
         cout << "User deleted successfully.\n";
     }
     
@@ -199,12 +186,12 @@ public:
             vector<string> fields = splitLine(line);
             
             if (fields.size() >= 3 && fields[1] == username) {
-                // Decrypt stored password and compare with input
+                // Decrypt stored password 
                 string decryptedStored = decryptPassword(fields[2]);
                 if (decryptedStored == password) {
                     return true;
                 }
-                return false; // Username found but password doesn't match
+                return false; 
             }
         }
         return false;
@@ -218,7 +205,7 @@ public:
         while (getline(fin, line)) {
             vector<string> fields = splitLine(line);
             if (fields.size() >= 2 && fields[1] == username) {
-                return fields[0]; // Return the ID field
+                return fields[0]; 
             }
         }
         return "";
@@ -250,9 +237,7 @@ public:
             cout << "\n--- Admin Menu ---\n";
             cout << "Current User's Login: HariraamOx7\n";
             cout << "Logged in as: " << getUsername() << " (ID: " << getId() << ")\n";
-            cout << "1. Add Student\n2. List Students\n3. Delete student\n";
-            cout << "4. Add Teacher\n5. List Teachers\n6. Delete teacher\n";
-            cout << "7. Logout\nChoice: ";
+            cout << "1. Add Student\n2. List Students\n3. Delete student\n4. Add Teacher\n5. List Teachers\n6. Delete teacher\n7. Logout\nChoice: ";
             cin >> choice;
 
             string id, username, password;
@@ -410,7 +395,7 @@ public:
 
         // Add metadata
         fout << "Exam ID: " << examID << "\n";
-        fout << "Created by: " << getUsername() << " (ID: " << getId() << ")\n";
+        fout << "Created by: " << getUsername() << "ID: " << getId() << "\n";
         fout << "Type: Subjective\n";
         fout << "Number of Questions: " << numQuestions << "\n";
         fout << "-------------------------\n\n";
@@ -520,7 +505,7 @@ private:
             vector<string> fields = splitLine(line);
             if (!fields.empty() && fields[0] == examID && fields.size() > 2) {
                 fin.close();
-                return fields[2]; // Type is the 3rd field (index 2)
+                return fields[2];
             }
         }
         fin.close();
