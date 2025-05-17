@@ -22,7 +22,7 @@ vector<string> splitLine(const string& line, char delimiter = '|') {
 string getField(const string& line, int fieldIndex, char delimiter = '|') {
     vector<string> fields = splitLine(line, delimiter);
     
-    if (fieldIndex >= 0 && fieldIndex < static_cast<int>(fields.size())) {
+    if (fieldIndex >= 0 && fieldIndex < (fields.size())) {
         return fields[fieldIndex];
     }
     return "";
