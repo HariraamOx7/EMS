@@ -1,0 +1,5 @@
+
+100|Maths|objective|1
+102|OOPS|subjective|1
+110|OOPS|objective|1
+1|OOPS|objective|1|1|Hariraam

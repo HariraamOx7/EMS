@@ -1,0 +1,11 @@
+Exam ID: 100
+Subject: maths
+Type: objective
+Number of Questions: 1
+Q1: what is 2+2/
+A) 1
+B) 2
+C) 3
+D) 4
+Answer: D
+-------------------------

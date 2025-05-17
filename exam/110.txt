@@ -1,0 +1,8 @@
+Q1: Which of the following is OOPS concept?
+A) Inheritance
+B) exceptional handling
+C) files
+D) STL
+Answer: A
+
+-------------------------
