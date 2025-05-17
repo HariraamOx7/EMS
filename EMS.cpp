@@ -3,10 +3,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <algorithm> // For reverse()
+#include <algorithm> 
 using namespace std;
 
-// Simple utility functions for file operations and encryption
+
 vector<string> splitLine(const string& line, char delimiter = '|') {
     vector<string> tokens;
     stringstream ss(line);
@@ -28,12 +28,12 @@ string getField(const string& line, int fieldIndex, char delimiter = '|') {
     return "";
 }
 
-// Simple encryption/decryption function - just shift each character by 1
+
 string encryptPassword(const string& input) {
     string result = input;
     
     for (int i = 0; i < result.length(); i++) {
-        result[i] = result[i] + 1; // Shift by 1
+        result[i] = result[i] + 1; 
     }
     
     return result;
@@ -44,20 +44,18 @@ string decryptPassword(const string& input) {
     string result = input;
     
     for (int i = 0; i < result.length(); i++) {
-        result[i] = result[i] - 1; // Shift back
+        result[i] = result[i] - 1; 
     }
     
     return result;
 }
 
-// Simple question encryption (just reverses the string)
 string encryptQuestion(const string& input) {
     string result = input;
     reverse(result.begin(), result.end());
     return result;
 }
 
-// Simple question decryption (reverses the string back)
 string decryptQuestion(const string& input) {
     string result = input;
     reverse(result.begin(), result.end());
@@ -67,7 +65,7 @@ string decryptQuestion(const string& input) {
 bool isIdExists(const string& file, const string& id) {
     ifstream fin(file);
     if (!fin.is_open()) {
-        return false; // If file doesn't exist, ID cannot exist
+        return false; 
     }
     
     string line;
@@ -85,8 +83,8 @@ bool isIdExists(const string& file, const string& id) {
 // ------------------- User Base Class -----------------
 class User {
 private:
-    string id;       // Unique identifier
-    string username; // Display name
+    string id;       
+    string username; 
     string password;
     
 protected:
@@ -117,7 +115,7 @@ protected:
             return false;
         }
         
-        // Encrypt the password before storing
+        // Encrypt the password 
         string encryptedPass = encryptPassword(password);
         
         fout << id << "|" << username << "|" << encryptedPass << "\n";
