@@ -517,7 +517,6 @@ public:
         int choice;
         while (true) {
             cout << "\n--- Student Menu ---\n";
-            cout << "Logged in as: " << getUsername() << " (ID: " << getId() << ")\n";
             cout << "1. List Available Exams\n2. Take Exam\n3. Logout\nChoice: ";
             cin >> choice;
             cin.ignore();
