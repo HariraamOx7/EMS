@@ -348,8 +348,8 @@ public:
     }
     
     void createExam() {
-        cin.ignore(); // Fix leftover newline before getline
-
+    try {
+        cin.ignore();
         string examID, subject, examType;
         int numQuestions;
 
@@ -358,30 +358,38 @@ public:
         
         // Check if exam ID already exists
         if (isIdExists(exam_details_file, examID)) {
-            cout << "Error: Exam ID already exists.\n";
-            return;
+            throw runtime_error("Error: Exam ID already exists.");
         }
         
         cout << "Enter Subject Name: ";
         getline(cin, subject);
-
+        
         cout << "Enter Exam Type (objective/subjective): ";
         getline(cin, examType);
+        if (examType != "objective" && examType != "subjective") {
+            throw runtime_error("Invalid exam type. Use 'objective' or 'subjective'.");
+        }
 
         cout << "Enter Number of Questions: ";
         cin >> numQuestions;
-        cin.ignore(); // Again, ignore newline before reading questions
+        if (numQuestions <= 0) {
+            throw runtime_error("Number of questions must be positive.");
+        }
+        cin.ignore();
 
         saveExamDetails(examID, subject, examType, numQuestions);
-
+        
         if (examType == "objective") {
             createObjectiveExam(examID, numQuestions);
-        } else if (examType == "subjective") {
-            createSubjectiveExam(examID, numQuestions);
         } else {
-            cout << "Invalid exam type.\n";
+            createSubjectiveExam(examID, numQuestions);
         }
     }
+    catch (const exception& e) {
+        cout << "Error creating exam: " << e.what() << endl;
+        // Return to menu
+    }
+}
 
     void createSubjectiveExam(const string& examID, int numQuestions) override {
         string examfile = exams_dir + examID + ".txt";
