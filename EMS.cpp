@@ -177,26 +177,29 @@ public:
     
     virtual ~User() {}
     
-    static bool validateLogin(const string& file, const string& username, const string& password) {
+   static bool validateLogin(const string& file, const string& username, const string& password) {
+    try {
         ifstream fin(file);
-        if (!fin.is_open()) return false;
+        if (!fin.is_open()) {
+            throw runtime_error("Cannot open user file");
+        }
         
         string line;
         while (getline(fin, line)) {
             vector<string> fields = splitLine(line);
             
             if (fields.size() >= 3 && fields[1] == username) {
-                // Decrypt stored password 
                 string decryptedStored = decryptPassword(fields[2]);
-                if (decryptedStored == password) {
-                    return true;
-                }
-                return false; 
+                return (decryptedStored == password);
             }
         }
         return false;
     }
-    
+    catch (const exception& e) {
+        cout << "Login Error: " << e.what() << endl;
+        return false;
+    }
+}
     static string getIdByUsername(const string& file, const string& username) {
         ifstream fin(file);
         if (!fin.is_open()) return "";
