@@ -235,8 +235,6 @@ public:
         int choice;
         while (true) {
             cout << "\n--- Admin Menu ---\n";
-            cout << "Current User's Login: HariraamOx7\n";
-            cout << "Logged in as: " << getUsername() << " (ID: " << getId() << ")\n";
             cout << "1. Add Student\n2. List Students\n3. Delete student\n4. Add Teacher\n5. List Teachers\n6. Delete teacher\n7. Logout\nChoice: ";
             cin >> choice;
 
